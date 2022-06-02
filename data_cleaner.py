@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 
 class DataCleaner:
@@ -18,6 +19,17 @@ class DataCleaner:
         clean_ceo_data = pd.DataFrame(raw_ceo_data)
         
         # create dummies
-        #clean_ceo_data['gender']= self.to_dummies(clean_ceo_data['gender'])
+        clean_ceo_data['GENDER']= self.to_dummies(clean_ceo_data['GENDER'])
+        clean_ceo_data['REASON']= self.to_dummies(clean_ceo_data['REASON'])
+        clean_ceo_data['SPCODE']= self.to_dummies(clean_ceo_data['SPCODE'])
         
+        # replace the missing values with zeros
+        clean_ceo_data['STATE'] = clean_ceo_data['STATE'].replace(np.nan, 0)
+        clean_ceo_data['BECAMECEO'] = clean_ceo_data['BECAMECEO'].replace(np.nan, 0)
+        clean_ceo_data['JOINEDCO'] = clean_ceo_data['JOINEDCO'].replace(np.nan, 0)
+        clean_ceo_data['LEFTOFC'] = clean_ceo_data['LEFTOFC'].replace(np.nan, 0)
+        clean_ceo_data['LEFTCO'] = clean_ceo_data['LEFTCO'].replace(np.nan, 0)
+        clean_ceo_data['REJOIN'] = clean_ceo_data['REJOIN'].replace(np.nan, 0)
+        clean_ceo_data['RELEFT'] = clean_ceo_data['RELEFT'].replace(np.nan, 0)
+        clean_ceo_data['REASON'] = clean_ceo_data['REASON'].replace(np.nan, 0)
         return clean_ceo_data
