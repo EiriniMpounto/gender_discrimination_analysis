@@ -28,3 +28,6 @@ raw_ceo_data = pd.read_csv(raw_ceo_data, chunksize=10000, header=0)
 raw_ceo_data = pd.concat(raw_ceo_data, ignore_index=True)
 print(raw_ceo_data)
 
+# clean the data
+clean_data_funtion = DataCleaner()
+ceo_data = clean_data_funtion.clean_data(raw_ceo_data)
