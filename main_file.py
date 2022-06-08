@@ -7,6 +7,7 @@ import pandas as pd
 # import secondary libraries
 from file_loader import DataLoader
 from data_cleaner import DataCleaner
+from descriptive_statistics import ceo_and_gender, gender_counts, ceo_counts
 
 # print all the rows in the results
 # pd.set_option('display.max_rows', None)
@@ -26,8 +27,17 @@ raw_ceo_data = data_loader.ceo_official_data
 # read the data
 raw_ceo_data = pd.read_csv(raw_ceo_data, chunksize=10000, header=0)
 raw_ceo_data = pd.concat(raw_ceo_data, ignore_index=True)
-print(raw_ceo_data)
+#print(raw_ceo_data)
 
 # clean the data
 clean_data_funtion = DataCleaner()
 ceo_data = clean_data_funtion.clean_data(raw_ceo_data)
+ceo_data.to_csv(os.path.join(output_folder, './clean_ceo_data.csv'))
+#print(ceo_data)
+
+# Start calculating the descriptives
+sex_counts = gender_counts(ceo_data)
+ceos_counts = ceo_counts(ceo_data)
+ceo_gender_counts = ceo_and_gender(ceo_data)
+
+
