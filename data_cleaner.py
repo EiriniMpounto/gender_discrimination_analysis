@@ -26,7 +26,7 @@ class DataCleaner:
         # replace the missing values with zeros
         clean_ceo_data['STATE'] = clean_ceo_data['STATE'].replace(np.nan, 0)
         clean_ceo_data['BECAMECEO'] = clean_ceo_data['BECAMECEO'].replace(np.nan, 0)
-        clean_ceo_data['JOINEDCO'] = clean_ceo_data['JOINEDCO'].replace(np.nan, 0)
+        clean_ceo_data['JOINED_CO'] = clean_ceo_data['JOINED_CO'].replace(np.nan, 0)
         clean_ceo_data['LEFTOFC'] = clean_ceo_data['LEFTOFC'].replace(np.nan, 0)
         clean_ceo_data['LEFTCO'] = clean_ceo_data['LEFTCO'].replace(np.nan, 0)
         clean_ceo_data['REJOIN'] = clean_ceo_data['REJOIN'].replace(np.nan, 0)
