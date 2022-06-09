@@ -7,7 +7,10 @@ import pandas as pd
 # import secondary libraries
 from file_loader import DataLoader
 from data_cleaner import DataCleaner
-from descriptive_statistics import ceo_and_gender, gender_counts, ceo_counts
+from descriptive_statistics import (ceo_cfo_gender, gender_counts, 
+                                    ceo_counts, average_age_bygender, 
+                                    average_salary_by_gender, average_sal_pct_gender, 
+                                    av_total_compensation_gender, reason_leaving_gender)
 
 # print all the rows in the results
 # pd.set_option('display.max_rows', None)
@@ -36,8 +39,21 @@ ceo_data.to_csv(os.path.join(output_folder, './clean_ceo_data.csv'))
 #print(ceo_data)
 
 # Start calculating the descriptives
-sex_counts = gender_counts(ceo_data)
-ceos_counts = ceo_counts(ceo_data)
-ceo_gender_counts = ceo_and_gender(ceo_data)
 
+# number of man and women 
+sex_counts = gender_counts(ceo_data)
+# number of current CEOs per gender
+ceos_counts = ceo_counts(ceo_data)
+# number of current CFOs per gender
+ceo_gender_counts = ceo_cfo_gender(ceo_data)
+# average age per gender
+average_age_per_gender = average_age_bygender(ceo_data)
+# average salary by gender
+av_salary_per_gender = average_salary_by_gender(ceo_data)
+# average percentange salry change by gender
+av_pct_sal_by_gender = average_sal_pct_gender(ceo_data)
+# average of total compensation per gender
+av_tdc_by_gender = av_total_compensation_gender(ceo_data)
+# reason men and women leave the company
+reason_per_gender = reason_leaving_gender(ceo_data)
 
