@@ -80,10 +80,13 @@ def av_total_compensation_gender(data):
     This function calculates the average of total 
     compensation for men VS women
     '''
-    av_tdc_gender = data.groupby('GENDER', as_index= False)['TDC1'].mean()
-    print('The total compensation by gender is:', av_tdc_gender)
+    av_tdc1_gender = data.groupby('GENDER', as_index= False)['TDC1'].mean()
+    av_tdc2_gender = data.groupby('GENDER', as_index = False)['TDC2'].mean()
     
-    return av_tdc_gender
+    print('The total 1 year compensation by gender is:', av_tdc1_gender)
+    print('The total 2 year compensation by gender is:', av_tdc2_gender)
+    
+    return av_tdc1_gender, av_tdc2_gender
 
 def reason_leaving_gender(data):
     '''
@@ -94,3 +97,21 @@ def reason_leaving_gender(data):
     reason_gender = reason_gender.count()
     print(reason_gender)
     return reason_gender
+
+def mode_spindex_spcode(data):
+    '''
+    This function calculates the mode of the 
+    spindex and the spcode variable
+    '''
+    spindex_mode = data['SPINDEX'].mode()
+    print('The mode for the SPINDEX variable is:', spindex_mode)
+    
+    spcode_mode = data['SPCODE'].mode()
+    print('The mode of the Scode variable is:', spcode_mode)
+    
+    return spindex_mode, spcode_mode
+
+def average_age_gender(data):
+    '''
+    This function calculates the average age between
+    men and women '''
