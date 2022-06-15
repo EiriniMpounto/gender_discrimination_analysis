@@ -62,3 +62,5 @@ av_age_gender_ceo = DescriptiveStatistics.average_age_gender_ceo(ceo_data)
 av_salary_gender_ceo = DescriptiveStatistics.average_salary_of_ceo_by_gender(ceo_data)
 # number of women and men that had the title CEO at least once
 men_women_ceos = DescriptiveStatistics.ceo_cfo_gender(ceo_data)
+# bonus differences between men and women 
+bonus_by_gender = DescriptiveStatistics.bonus_gender(ceo_data)
