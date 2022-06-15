@@ -152,6 +152,22 @@ class DescriptiveStatistics:
         av_salary_cfo_gender = data.groupby(['GENDER','PCFO'], as_index= False)['SALARY'].mean()
         print('The average salary of women and men that have currently the title CFO',av_salary_cfo_gender)
         
+        # average 1 year total compansation of women VS men CEOs and CFOs 
+        av_tdc1_ceo_gender = data.groupby(['GENDER', 'PCEO'], as_index = False)['TDC1'].mean()
+        print('The average 1 year total compensation of women VS men that currently have the title CEO',
+              av_tdc1_ceo_gender)
+        av_tdc1_cfo_gender = data.groupby(['GENDER', 'PCFO'], as_index = False)['TDC1'].mean()
+        print('The average 1 year total compensation of women VS men that currently have the title CFO',
+              av_tdc1_cfo_gender)
+        
+        # average 2 year total compensation of women VS men CEOs and CFOs
+        av_tdc2_ceo_gender = data.groupby(['GENDER', 'PCEO'], as_index = False)['TDC2'].mean()
+        print('The average 2 year total compensation of women VS men that have currently the title CEO',
+              av_tdc2_ceo_gender)
+        av_tdc2_cfo_gender = data.groupby(['GENDER', 'PCFO'], as_index = False)['TDC2'].mean()
+        print('The average 2 year total compensation of women VS men that have currently the title CFO',
+              av_tdc2_cfo_gender)
+        
         return 
     
     
@@ -198,11 +214,57 @@ class DescriptiveStatistics:
         av_sal_ceos_gender = data.groupby(['GENDER', 'CEO_NEW'], as_index= False)['SALARY'].mean()
         print('The average salary of women Vs men that have had at least once the title CEO', 
               av_sal_ceos_gender)
+        
         # average salary of cfos
         av_sal_cfos_gender = data.groupby(['GENDER', 'CFO_NEW'], as_index= False)['SALARY'].mean()
         print('The average salary of women Vs men that have had at least once the title CFO', 
               av_sal_cfos_gender)
         
+        # average total 1 year compensation of ceos
+        av_tdc1_ceos_gender = data.groupby(['GENDER', 'CEO_NEW'], as_index= False)['TDC1'].mean()
+        print('The average total 1 year compensation of women VS men that have had at least once the CEO title',
+              av_tdc1_ceos_gender)
+        # average total 1 year compensation of cfos
+        av_tdc1_cfos_gender = data.groupby(['GENDER', 'CFO_NEW'], as_index = False)['TDC1'].mean()
+        print('The average total 1 year compensation of women VS men that have had at least once the title CFO',
+              av_tdc1_cfos_gender)
+        
+        # average total 2 year compensation of ceos
+        av_tdc2_ceos_gender = data.groupby(['GENDER', 'CEO_NEW'], as_index = False)['TDC2'].mean()
+        print('The average total 2 year compensation of women VS men that have had at least once the title CEO',
+              av_tdc2_ceos_gender)
+        # average total 2 year compensation of cfos
+        av_tdc2_cfos_gender = data.groupby(['GENDER','CFO_NEW'], as_index = False)['TDC2'].mean()
+        print('The average total 2 year compensation of women VS men that have had at least once the titls CFO',
+              av_tdc2_cfos_gender)
         
         return 
+        
+    
+    def bonus_gender(data):
+        '''
+        The current function calculates the bonus 
+        differences between men and women and between 
+        the executives that have the title CEO and CFO
+        '''
+        
+        # bonus differences between men and women in average
+        av_bonus_gender = data.groupby('GENDER', as_index = False)['BONUS'].mean()
+        print('The average bonus men VS women', av_bonus_gender)
+        
+        # bonus differences of women VS men current CEOs and CFOs
+        av_bonus_pceo = data.groupby(['GENDER', 'PCEO'], as_index = False)['BONUS'].mean()
+        print('The average bonus men VS women that are currently CEOs', av_bonus_pceo)
+        av_bonus_pcfo = data.groupby(['GENDER', 'PCFO'], as_index = False)['BONUS'].mean()
+        print('The average bonus men VS women that are currently CFOs', av_bonus_pcfo)
+        
+        # bonus differences of women VS men that have been CEO and CFO at least once
+        av_bonus_ceo = data.groupby(['GENDER', 'CEO_NEW'], as_index = False)['BONUS'].mean()
+        print('The average bonus differences of men VS women that were CEOs at least once',
+              av_bonus_ceo)
+        av_bonus_cfo = data.groupby(['GENDER', 'CFO_NEW'], as_index = False)['BONUS'].mean()
+        print('The average bonus differences of men VS women that were CFOs at least once',
+              av_bonus_cfo)
+        
+        return
         
