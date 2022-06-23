@@ -37,30 +37,7 @@ ceo_data.to_csv(os.path.join(output_folder, "./clean_ceo_data.csv"))
 
 
 # Start calculating the descriptives
-
-# number of man and women
-sex_counts = DescriptiveStatistics.gender_counts(ceo_data)
-# number of current CEOs per gender
-ceos_counts = DescriptiveStatistics.ceo_counts(ceo_data)
-# number of current CFOs per gender
-ceo_gender_counts = DescriptiveStatistics.pceo_pcfo_gender(ceo_data)
-# average age per gender
-average_age_per_gender = DescriptiveStatistics.average_age_bygender(ceo_data)
-# average salary by gender
-av_salary_per_gender = DescriptiveStatistics.average_salary_by_gender(ceo_data)
-# average percentange salry change by gender
-av_pct_sal_by_gender = DescriptiveStatistics.average_sal_pct_gender(ceo_data)
-# average of total compensation per gender
-av_tdc_by_gender = DescriptiveStatistics.av_total_compensation_gender(ceo_data)
-# reason men and women leave the company
-reason_per_gender = DescriptiveStatistics.reason_leaving_gender(ceo_data)
-# calculate the mode for the spindex and spcode
-spindex_spcode_mode = DescriptiveStatistics.mode_spindex_spcode(ceo_data)
-# calculate the average age of women VS men CEOS
-av_age_gender_ceo = DescriptiveStatistics.average_age_gender_ceo(ceo_data)
-# calculate the average salary of women VS men CEOs
-av_salary_gender_ceo = DescriptiveStatistics.average_salary_of_ceo_by_gender(ceo_data)
-# number of women and men that had the title CEO at least once
-men_women_ceos = DescriptiveStatistics.ceo_cfo_gender(ceo_data)
-# bonus differences between men and women 
-bonus_by_gender = DescriptiveStatistics.bonus_gender(ceo_data)
+data_counts = DescriptiveStatistics.data_counts(ceo_data)
+gender_comparisons = DescriptiveStatistics.gender_comparisons(ceo_data)
+ceo_gender_comparisons = DescriptiveStatistics.ceo_gender_comparisons(ceo_data)
+statistical_calculations = DescriptiveStatistics.statistical_calculations(ceo_data)
