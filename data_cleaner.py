@@ -32,4 +32,5 @@ class DataCleaner:
         clean_ceo_data['REJOIN'] = clean_ceo_data['REJOIN'].replace(np.nan, 0)
         clean_ceo_data['RELEFT'] = clean_ceo_data['RELEFT'].replace(np.nan, 0)
         clean_ceo_data['REASON'] = clean_ceo_data['REASON'].replace(np.nan, 0)
+        
         return clean_ceo_data
